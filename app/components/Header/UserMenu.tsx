@@ -60,7 +60,7 @@ const UserMenu = () => {
                     "
                 >
                     <AiOutlineMenu />
-                    <div className='hidden md:block'
+                    <div className=''
                     >
                         <Avatar />
                     </div>

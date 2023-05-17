@@ -1,14 +1,14 @@
 'use client';
 
 import Container from "../Container"
-import Logo from "./Logo"
+import Logo from "../Logo"
 import Search from "./Search"
 import Navigation from "./Navigation"
 import UserMenu from "./UserMenu"
 
-const Navbar = () => {
+const Header = () => {
     return (
-        <div className="fixed w-full bg-white z-10 shadow-sm">
+        <div className="relative w-full bg-white z-10 shadow-sm">
             <div className="
                 py-4
                 border-b-[1px]
@@ -34,4 +34,4 @@ const Navbar = () => {
     );
 }
 
-export default Navbar;
+export default Header;

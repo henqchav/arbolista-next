@@ -1,8 +1,8 @@
 import ClientOnly from './components/ClientOnly'
 
 import RegisterModal from './components/modals/RegisterModal'
-
-import Navbar from './components/navbar/Navbar'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
 import './globals.css'
 import { Nunito } from 'next/font/google'
 import ToasterProvider from './providers/ToasterProvider'
@@ -26,10 +26,10 @@ export default function RootLayout({
         <ClientOnly>
           <ToasterProvider />
           <RegisterModal />
-          <Navbar />
+          <Header />
         </ClientOnly>
         {children}
-        
+        <Footer />
       </body>
     </html>
   )
