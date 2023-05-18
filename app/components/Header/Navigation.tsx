@@ -1,5 +1,5 @@
 'use client';
-import Container from "../Container";
+import Link from "next/link";
 
 const Navigation = () => {
     return (
@@ -21,7 +21,7 @@ const Navigation = () => {
                 transition
                 cursor-pointer
             ">
-                <a href="#">Acerca</a>
+                <Link href={"/acerca"}>Acerca</Link>
             </div>
             <div className="
                 text-sm
@@ -33,7 +33,7 @@ const Navigation = () => {
                 transition
                 cursor-pointer
             ">
-                <a href="#">Galeria</a>
+                <Link href={"/galeria"}>Galeria</Link>
             </div>
             <div className="
                 text-sm
@@ -45,7 +45,7 @@ const Navigation = () => {
                 transition
                 cursor-pointer
             ">
-                <a href="#">Especies</a>
+                <Link href={"/especies"}>Especies</Link>
             </div>
             <div className="
                 text-sm
@@ -57,7 +57,7 @@ const Navigation = () => {
                 transition
                 cursor-pointer
             ">
-                <a href="#">Viveros</a>
+                <Link href={"/viveros"}>Viveros</Link>
             </div>
         </div>
     );

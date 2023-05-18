@@ -1,11 +1,13 @@
 import ClientOnly from './components/ClientOnly'
 
 import RegisterModal from './components/modals/RegisterModal'
+import LoginModal from './components/modals/LoginModal'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import './globals.css'
 import { Nunito } from 'next/font/google'
 import ToasterProvider from './providers/ToasterProvider'
+import getCurrentUser from './actions/getCurrentUser'
 
 
 const nunito = Nunito({ subsets: ['latin'] })
@@ -15,21 +17,25 @@ export const metadata = {
   description: 'Catalogo de Especies de Plantas Nativas de Guayaquil, Ecuador',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const currentUser = await getCurrentUser();
   return (
     <html lang="en">
       <body className={nunito.className}>
         <ClientOnly>
           <ToasterProvider />
           <RegisterModal />
-          <Header />
+          <LoginModal />
+          <Header currentUser={currentUser}/>
         </ClientOnly>
-        {children}
-        <Footer />
+          {children}
+        <ClientOnly>
+          <Footer />
+        </ClientOnly>
       </body>
     </html>
   )

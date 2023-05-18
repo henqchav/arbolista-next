@@ -5,8 +5,15 @@ import Logo from "../Logo"
 import Search from "./Search"
 import Navigation from "./Navigation"
 import UserMenu from "./UserMenu"
+import { SafeUser } from "@/app/types";
 
-const Header = () => {
+interface HeaderProps {
+    currentUser?: SafeUser | null | undefined;
+}
+
+const Header: React.FC<HeaderProps> = ({
+    currentUser,
+}) => {
     return (
         <div className="relative w-full bg-white z-10 shadow-sm">
             <div className="
@@ -23,10 +30,10 @@ const Header = () => {
                         md:gap-0
                         w-full
                     ">
-                        <Logo />
+                        <Logo src="/images/logo-text.png" />
                         <Search />
                         <Navigation />
-                        <UserMenu />
+                        <UserMenu currentUser={currentUser}/>
                     </div>
                 </Container>
             </div>

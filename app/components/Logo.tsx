@@ -17,7 +17,9 @@ const Logo: React.FC<LogoProps> = ({
     const router = useRouter();
     return (
         <Image 
-            alt='Logo' 
+            alt='Logo'
+            priority
+            onClick={() => router.push('/')}
             className="md:block cursor-pointer" 
             height={height || 100}
             width={width || 100}

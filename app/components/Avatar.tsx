@@ -1,9 +1,24 @@
 'use client';
 
 import {CgProfile} from 'react-icons/cg';
-const Avatar = () => {
+
+interface AvatarProps {
+    name?: string | null | undefined;
+}
+const Avatar: React.FC<AvatarProps> = ({
+    name,
+}) => {
     return (
-        <CgProfile size={25}/>
+        <>
+            {name ? (
+                <div className='text-semibold capitalize'>
+                    {name}
+                </div>
+            ) : (
+                <CgProfile size={25}/>
+            )}
+            
+        </>
     );
 }
 
