@@ -5,7 +5,7 @@ import EmptyState from '@/app/components/EmptyState';
 import ClientOnly from '@/app/components/ClientOnly';
 //import getCurrentUser from "@/app/actions/getCurrentUser";
 import { useRouter } from 'next/navigation';
-import Button from './components/Button';
+import Button from './components/buttons/Button';
 import Image from 'next/image';
 
 /*

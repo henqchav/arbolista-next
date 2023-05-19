@@ -3,12 +3,14 @@
 import { IconType } from "react-icons";
 
 interface ButtonProps {
-  label: string;
+  label?: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   outline?: boolean;
   small?: boolean;
   icon?: IconType;
+  iconSize?: number;
+  style?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({ 
@@ -18,6 +20,8 @@ const Button: React.FC<ButtonProps> = ({
   outline,
   small,
   icon: Icon,
+  iconSize = 24,
+  style='',
 }) => {
   return ( 
     <button
@@ -38,18 +42,20 @@ const Button: React.FC<ButtonProps> = ({
         ${small ? 'py-1' : 'py-3'}
         ${small ? 'font-light' : 'font-semibold'}
         ${small ? 'border-[1px]' : 'border-2'}
-      `}
+      ` + style}
     >
+      
       {Icon && (
         <Icon
-          size={24}
-          className="
+          size={iconSize}
+          className={`
+            ${small ? 'left-2': 'left-4'}
+            ${small ? 'top-1': 'top-2'}
             absolute
-            left-4
-            top-3
-          "
+          `}
         />
       )}
+      
       {label}
     </button>
    );

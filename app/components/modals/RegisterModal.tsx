@@ -1,7 +1,7 @@
 'use client';
 
 import axios from 'axios';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import {
     FieldValues,
     SubmitHandler,
@@ -13,7 +13,6 @@ import useRegisterModal from '@/app/hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
-import Button from '../Button';
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
