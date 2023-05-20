@@ -31,7 +31,6 @@ const Header: React.FC<HeaderProps> = ({
                         w-full
                     ">
                         <Logo src="/images/logo-text.png" />
-                        <Search />
                         <Navigation />
                         <UserMenu currentUser={currentUser}/>
                     </div>

@@ -32,7 +32,7 @@ export default async function RootLayout({
           <LoginModal />
           <Header currentUser={currentUser}/>
         </ClientOnly>
-          {children}
+        <div className='my-auto'>{children}</div>  
         <ClientOnly>
           <Footer />
         </ClientOnly>

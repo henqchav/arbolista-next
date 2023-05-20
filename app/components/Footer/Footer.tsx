@@ -7,14 +7,15 @@ const Footer = () => {
             items-center 
             justify-center 
             gap-20 
-            flex 
+            flex
+            w-full 
             flex-col 
             text-white
         "
         >
-            <div className="flex flex-row gap-20 items-center">
+            <div className="flex flex-row 2xs:flex-col w-full gap-20 items-center">
                 <div className="bg-green-700 h-fit w-fit rounded-xl">
-                    <Logo src="/images/logo-w.png" width={150} height={150}/>
+                    <Logo src="/images/logo-w.png" width={100} height={100}/>
                 </div>
                 <div className="flex flex-row gap-10">
                     <div className="flex flex-col gap-2 text-center">
