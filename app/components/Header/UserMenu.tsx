@@ -28,29 +28,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
         <div className="relative">
             <div className="flex flex-row items-center gap-3">
                 <div 
-                    onClick={()=>{}}
-                    className="
-                        flex
-                        flex-row
-                        gap-2
-                        hidden
-                        md:flex
-                        items-center
-                        text-sm
-                        font-semibold
-                        py-3
-                        px-4
-                        rounded-full
-                        hover:bg-green-200
-                        transition
-                        cursor-pointer
-                        hover:shadow-md
-                    "
-                >
-                    <div>Planta tu árbol</div>
-                    <GiSeedling />
-                </div>
-                <div 
                     onClick={toggleOpen}
                     className="
                         p-4

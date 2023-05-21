@@ -9,7 +9,6 @@ import { Nunito } from 'next/font/google'
 import ToasterProvider from './providers/ToasterProvider'
 import getCurrentUser from './actions/getCurrentUser'
 
-
 const nunito = Nunito({ subsets: ['latin'] })
 
 export const metadata = {
@@ -30,12 +29,10 @@ export default async function RootLayout({
           <ToasterProvider />
           <RegisterModal />
           <LoginModal />
-          <Header currentUser={currentUser}/>
         </ClientOnly>
-        <div className='my-auto'>{children}</div>  
-        <ClientOnly>
-          <Footer />
-        </ClientOnly>
+        <Header currentUser={currentUser}/>
+        <div className='my-auto'>{children}</div>
+        <Footer />
       </body>
     </html>
   )

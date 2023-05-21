@@ -1,7 +1,6 @@
 'use client';
 import { BiImages } from 'react-icons/bi';
 import { RiPlantLine } from 'react-icons/ri';
-import EmptyState from '@/app/components/EmptyState';
 import ClientOnly from '@/app/components/ClientOnly';
 //import getCurrentUser from "@/app/actions/getCurrentUser";
 import { useRouter } from 'next/navigation';
@@ -29,7 +28,8 @@ const Home = () => {
                         className='object-cover brightness-50'
                         alt='Poster'
                         priority
-                        quality={100}                    
+                        blurDataURL='/images/poster.jpg'
+                        placeholder='blur'                    
                     />
                 </div>
                 <div className='z-10 max-w-screen-lg px-4'>

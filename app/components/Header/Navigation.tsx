@@ -1,65 +1,54 @@
 'use client';
 import Link from "next/link";
 
-const Navigation = () => {
+interface NavigationProps {
+    orientation?: 'horizontal' | 'vertical';
+}
+
+const Navigation: React.FC<NavigationProps> = ({
+    orientation = 'horizontal',
+}) => {
+
+    const links = [
+        {
+            name: 'Acerca',
+            href: '/acerca',
+        },
+        {
+            name: 'Galeria',
+            href: '/galeria',
+        },
+        {
+            name: 'Especies',
+            href: '/especies',
+        },
+        {
+            name: 'Viveros',
+            href: '/viveros',
+        },
+    ];
     return (
-        <div className="
-            flex
-            flex-row
-            items-center
-            justify-between
-            gap-3
-            w-auto
-        ">
-            <div className="
-                text-sm
-                text-gray-600
-                hover:text-gray-800
-                hover:font-bold
-                hover:border-b-[2px]
-                hover:border-b-green-600
-                transition
-                cursor-pointer
-            ">
-                <Link href={"/acerca"}>Acerca</Link>
-            </div>
-            <div className="
-                text-sm
-                text-gray-600
-                hover:text-gray-800
-                hover:font-bold
-                hover:border-b-[2px]
-                hover:border-b-green-600
-                transition
-                cursor-pointer
-            ">
-                <Link href={"/galeria"}>Galeria</Link>
-            </div>
-            <div className="
-                text-sm
-                text-gray-600
-                hover:text-gray-800
-                hover:font-bold
-                hover:border-b-[2px]
-                hover:border-b-green-600
-                transition
-                cursor-pointer
-            ">
-                <Link href={"/especies"}>Especies</Link>
-            </div>
-            <div className="
-                text-sm
-                text-gray-600
-                hover:text-gray-800
-                hover:font-bold
-                hover:border-b-[2px]
-                hover:border-b-green-600
-                transition
-                cursor-pointer
-            ">
-                <Link href={"/viveros"}>Viveros</Link>
-            </div>
-        </div>
+        <>
+            {links.map((link, index) => (
+                <li
+                    key={index}
+                    className={`
+                        text-sm
+                        text-gray-600
+                        hover:text-gray-800
+                        hover:font-bold
+                        hover:border-b-[2px]
+                        hover:border-b-green-600
+                        transition
+                        cursor-pointer
+                        ${index === links.length - 1 && orientation==="horizontal" ? 'mr-0' : 'mr-4'}
+                        ${orientation === 'vertical' ? 'mt-4' : 'mt-0'}
+                    `}
+                >
+                    <Link href={link.href}>{link.name}</Link>
+                </li>
+            ))}      
+        </>
     );
 }
 
