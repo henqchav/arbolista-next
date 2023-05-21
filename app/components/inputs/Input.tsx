@@ -1,5 +1,3 @@
-'use client';
-
 import { 
   FieldErrors, 
   FieldValues, 
@@ -22,7 +20,7 @@ const Input: React.FC<InputProps> = ({
   id,
   label,
   type = "text", 
-  disabled, 
+  disabled = false, 
   formatPrice,
   register,
   required,

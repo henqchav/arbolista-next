@@ -41,7 +41,6 @@ const Navigation: React.FC<NavigationProps> = ({
                         hover:border-b-green-600
                         transition
                         cursor-pointer
-                        ${index === links.length - 1 && orientation==="horizontal" ? 'mr-0' : 'mr-4'}
                         ${orientation === 'vertical' ? 'mt-4' : 'mt-0'}
                     `}
                 >

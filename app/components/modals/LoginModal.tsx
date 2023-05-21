@@ -82,7 +82,7 @@ const LoginModal = () => {
                 <div className='justify-center flex flex-row items-center gap-2'>
                     <div>¿Aun no tienes una cuenta?</div>
                     <div className='text-green-500 font-semibold cursor-pointer hover:underline'>
-                    Registrate
+                    <button onClick={()=>{loginModal.onClose;}}>Registrate</button>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ const LoginModal = () => {
         <Modal 
             disabled={isLoading}
             isOpen={loginModal.isOpen}
-            title='Registro'
+            title='Inicio de Sesion'
             onClose={loginModal.onClose}
             onSubmit={handleSubmit(onSubmit)}
             actionLabel='Iniciar Sesion'
