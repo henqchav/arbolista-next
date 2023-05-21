@@ -28,7 +28,7 @@ const MenuItems: React.FC<MenuItemsProps> = ({showMenu, active}) => {
 
                 <Button onClick={()=>{}} label="Planta tu árbol" style="w-full" icon={GiSeedling}/>
                 <Link className="p-2 hover:opacity-90 bg-cyan-900 rounded-md w-full text-white" href={'/login'}>Iniciar sesion</Link>
-                <Link href={'/register'}>Registrarse</Link>
+                <Link className="p-2 hover:opacity-90 bg-sky-950 rounded-md w-full text-white" href={'/register'}>Registrarse</Link>
 
             </ul>
         </div>
