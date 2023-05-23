@@ -15,8 +15,6 @@ export const metadata = {
   title: 'Arbolista',
   description: 'Catalogo de Especies de Plantas Nativas de Guayaquil, Ecuador',
   charSet: 'utf-8',
-  lang: 'es',
-  image: '/images/logo.png',
   icon: '/favicon.ico',
 }
 
@@ -27,7 +25,7 @@ export default async function RootLayout({
 }) {
   const currentUser = await getCurrentUser();
   return (
-    <html>
+    <html lang='es'>
       <body className={nunito.className}>
         <ClientOnly>
           <ToasterProvider />

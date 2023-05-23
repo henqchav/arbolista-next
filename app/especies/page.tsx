@@ -123,8 +123,8 @@ const Especies = () => {
 
     return (
         <div className="flex flex-col w-full h-full bg-[#eee] relative">
-            <div className="w-full h-auto p-6 text-xl flex bg-green-500 flex-col gap-4 justify-center md:justify-around items-center font-bold text-white md:flex-row md:gap-0">
-                <h1 className="w-full text-lg md:text-lg text-center md:mr-2">Especies Nativas</h1>
+            <div className="w-full h-auto p-6 text-xl flex bg-gray-800 flex-col gap-4 justify-center md:justify-around items-center font-bold text-white md:flex-row md:gap-0">
+                <h1 className="w-full text-lg md:text-lg text-center md:text-left md:mr-2">Especies Nativas</h1>
                 <ClientOnly>
                     <div className="flex flex-row items-center gap-2 w-full">
                         <input
@@ -150,7 +150,7 @@ const Especies = () => {
                             "                    
                         />
                         <IconButton style="outline outline-1 outline-white" small onClick={search} iconSize={20} icon={BiSearch}/>
-                        <button type="button" className="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" 
+                        <button type="button" className="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-2 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" 
                         onClick={showfilter}>
                             <GoSettings className="w-5 h-5 md:mr-2"/>
                             <span className="hidden md:flex">Filtrar</span>
