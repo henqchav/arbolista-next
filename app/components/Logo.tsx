@@ -1,30 +1,35 @@
 'use client';
 
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface LogoProps {
     height?: number;
     width?: number;
     src?: string;
+    className?: string;
+    alt?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({
     height,
     width,
     src,
+    alt = 'Logo',
+    className,
 }) => {
-    const router = useRouter();
     return (
-        <Image 
-            alt='Logo'
-            priority
-            onClick={() => router.push('/')}
-            className="md:block cursor-pointer" 
-            height={height || 75}
-            width={width || 75}
-            src={src || '/images/logo-text.png'}
-        />
+        <Link href={"/"}>
+            <Image 
+                alt={alt}
+                priority
+                className={"cursor-pointer " + className} 
+                height={height || 75}
+                width={width || 75}
+                src={src || '/images/logo-text.svg'}
+            />
+        </Link>
+        
     );
 }
 

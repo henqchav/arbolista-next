@@ -44,7 +44,7 @@ const Navigation: React.FC<NavigationProps> = ({
                         ${orientation === 'vertical' ? 'mt-4' : 'mt-0'}
                     `}
                 >
-                    <Link href={link.href}>{link.name}</Link>
+                    <Link href={link.href} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0">{link.name}</Link>
                 </li>
             ))}      
         </>

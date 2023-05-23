@@ -1,3 +1,4 @@
+'use client';
 const Viveros = () => {
     return (
         <div>
@@ -7,3 +8,4 @@ const Viveros = () => {
         </div>
     );
 }
+export default Viveros;

@@ -7,13 +7,6 @@ import { useRouter } from 'next/navigation';
 import Button from './components/buttons/Button';
 import Image from 'next/image';
 
-/*
-interface HomeProps {
-    searchParams: IEspeciesParams
-};
-*/
-//const Home = async ({ searchParams }: HomeProps) => {
-
 const Home = () => {
     //const currentUser = await getCurrentUser();
     const router = useRouter();
@@ -27,9 +20,7 @@ const Home = () => {
                         fill
                         className='object-cover brightness-50'
                         alt='Poster'
-                        priority
-                        blurDataURL='/images/poster.jpg'
-                        placeholder='blur'                    
+                        priority                
                     />
                 </div>
                 <div className='z-10 max-w-screen-lg px-4'>
@@ -37,13 +28,10 @@ const Home = () => {
                         <div className='font-semibold text-lg sm:text-md text-gray-700'>Especies Nativas de esta region</div>
                         <div className='text-3xl sm:text-2xl font-bold text-gray-800'>Conoce la variedad de especies en Guayaquil</div>
                         <div className='text-md sm:text-sm font-light text-gray-700'>Observa informacion clave de cada especie, como su nombre cientifico, como sembrarlas y como obtenerlas</div>
-                        
-                        <ClientOnly>
-                            <div className='flex flex-row gap-2 justify-center w-full'>
-                                <Button label="Galeria" onClick={() => router.push('/galeria') } icon={BiImages} />
-                                <Button label="Especies" onClick={()=>router.push('/especies')} icon={RiPlantLine}/>
-                            </div>
-                        </ClientOnly>
+                        <div className='flex flex-row gap-2 justify-center w-full'>
+                            <Button label="Galeria" onClick={() => router.push('/galeria') } icon={BiImages} />
+                            <Button label="Especies" onClick={()=>router.push('/especies')} icon={RiPlantLine}/>
+                        </div>
                     </div>
                     
                 </div>

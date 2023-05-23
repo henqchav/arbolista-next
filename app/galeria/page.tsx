@@ -1,3 +1,4 @@
+'use client';
 const galeria = () => {
     return (
         <div className="flex flex-col items-center justify-center">

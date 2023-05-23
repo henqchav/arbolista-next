@@ -1,3 +1,5 @@
+'use client';
+
 const Acerca = () => {
     return (
         <div>
@@ -7,3 +9,4 @@ const Acerca = () => {
         </div>
     );
 }
+export default Acerca;

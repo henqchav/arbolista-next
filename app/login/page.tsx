@@ -7,7 +7,6 @@ import { SafeUser } from "../types";
 import { signIn } from "next-auth/react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
-import ClientOnly from "../components/ClientOnly";
 import Button from "../components/buttons/Button";
 import Link from "next/link";
 
@@ -38,6 +37,7 @@ const Login: React.FC<LoginProps> = ({
         .then((callback) => {
             if(callback?.ok) {
                 toast.success('Inicio de sesión exitos\nBienvenido');
+                router.refresh();
                 router.push('/');
             }
             if(callback?.error) {
