@@ -6,33 +6,33 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model User{
-  id              String  @id @default(auto()) @map("_id") @db.ObjectId
+  id              String  @id @default(cuid()) @map("_id")
   name            String?
   email           String?  @unique
   hashedPassword  String
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  accounts  Account[]
-  vivero   Vivero[]
+  userRole        UserRole @default(READ_ONLY)
+  createdAt       DateTime @default(now()) @map(name: "created_at")
+  updatedAt       DateTime @updatedAt @map(name: "updated_at")
+  accounts        Account[]
+  nurseries       Nursery?
 }
 
 model Account{
-  id              String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId          String @db.ObjectId
+  id              String  @id @default(cuid()) @map("_id") 
+  userId          String 
   type            String
   provider        String
-  refresh_token   String? @db.String
-  access_token    String? @db.String
+  refresh_token   String? 
+  access_token    String? 
   expires_at      Int?
   token_type      String?
   scope           String?
-  id_token        String? @db.String
+  id_token        String? 
   providerAccountId String
   session_state   String?
 
@@ -40,18 +40,46 @@ model Account{
   @@unique ([provider, providerAccountId])
 }
 
-model Vivero{
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  name     String
-  address  String
-  phone    String
-  email    String
-  website  String
-  logoSrc  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  userId  String @db.ObjectId
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
+model Species {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  images      Image[]
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+  updatedAt   DateTime @updatedAt @map(name: "updated_at")
+  availableStatus Boolean  @default(true) @map("available_status")     
 }
+
+
+model Nursery{
+  id        String @id @default(cuid()) @map("_id")
+  name      String
+  address   String?
+  phone     String?
+  email     String?
+  website   String?
+  logoSrc   String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  ownerId   String @unique @map("owner_id")
+  owner     User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+}
+
+enum UserRole {
+  SPECIES_CREATOR
+  NURSERY_CREATOR
+  ADMIN
+  READ_ONLY
+}
+
+
+model Image {
+  id        String   @id @default(cuid())
+  url       String
+  species   Species  @relation(fields: [speciesId], references: [id])
+  speciesId String   @map("species_id")
+}
+
+
+
+
