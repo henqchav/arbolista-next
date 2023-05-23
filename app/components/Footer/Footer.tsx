@@ -1,3 +1,5 @@
+'use client';
+
 import Logo from "../Logo";
 const Footer = () => {
     return (
@@ -13,39 +15,39 @@ const Footer = () => {
             text-white
         "
         >
-            <div className="flex flex-row 2xs:flex-col w-full gap-20 items-center">
-                <div className="bg-green-700 h-fit w-fit rounded-xl">
-                    <Logo src="/images/logo-w.png" width={100} height={100}/>
+            <div className="flex flex-row 2xs:flex-col w-full gap-20 items-center justify-center">
+                <div className="bg-green-500 h-fit w-fit rounded-xl">
+                    <Logo src="/images/logo-w.svg" width={100} height={100}/>
                 </div>
-                <div className="flex flex-row gap-10">
-                    <div className="flex flex-col gap-2 text-center">
-                        <div className="font-bold text-green-600">Especies</div>
+                <div className="flex flex-row justify-center gap-5 w-full">
+                    <div className="flex flex-col gap-2 text-center w-full">
+                        <div className="font-bold text-green-400">Especies</div>
                         <ul className="flex-col flex gap-2">
-                            <li className="hover:border-green-600 cursor-pointer hover:border-b-[1px]">Galeria</li>
-                            <li className="hover:border-green-600 cursor-pointer hover:border-b-[1px]">Especies</li>
-                            <li className="hover:border-green-600 cursor-pointer hover:border-b-[1px]">Planta tu arbol</li>
-                            <li className="hover:border-green-600 cursor-pointer hover:border-b-[1px]">Guias y Consejos</li>
+                            <li className="hover:border-green-400 cursor-pointer hover:border-b-[1px]">Galeria</li>
+                            <li className="hover:border-green-400 cursor-pointer hover:border-b-[1px]">Especies</li>
+                            <li className="hover:border-green-400 cursor-pointer hover:border-b-[1px]">Planta tu arbol</li>
+                            <li className="hover:border-green-400 cursor-pointer hover:border-b-[1px]">Guias y Consejos</li>
                         </ul>
                     </div>
-                    <div className="flex flex-col gap-2 text-center">
-                        <div className="font-bold text-green-600">Viveros</div>
+                    <div className="flex flex-col gap-2 text-center w-full">
+                        <div className="font-bold text-green-400">Viveros</div>
                         <ul className="flex-col flex gap-2">
-                            <li className="hover:border-green-600 cursor-pointer hover:border-b-[1px]">Viveros</li>
+                            <li className="hover:border-green-400 cursor-pointer hover:border-b-[1px]">Viveros</li>
                         </ul>
                     </div>
                     
-                    <div className="flex flex-col gap-2 text-center">
-                        <div className="font-bold text-green-600">Nosotros</div>
+                    <div className="flex flex-col gap-2 text-center w-full">
+                        <div className="font-bold text-green-400">Nosotros</div>
                         <ul className="flex-col flex gap-2">
-                            <li className="hover:border-green-600 cursor-pointer hover:border-b-[1px]">Mision / Vision</li>
-                            <li className="hover:border-green-600 cursor-pointer hover:border-b-[1px]">Contactenos</li>
+                            <li className="hover:border-green-400 cursor-pointer hover:border-b-[1px]">Mision / Vision</li>
+                            <li className="hover:border-green-400 cursor-pointer hover:border-b-[1px]">Contactenos</li>
                         </ul>
                     </div>
                 </div>
                 
             </div>
             <div className="text-center flex flex-col gap-5">
-                <p>Con el apoyo de <span className="text-green-500 font-semibold">CIIFEN</span> y en colaboracion con <span className="text-green-500 font-semibold">Jardin Botanico de Guayaquil</span></p>
+                <p>Con el apoyo de <a className="text-green-400 font-semibold" href="https://ciifen.org">CIIFEN</a> y en colaboracion con <a href="https://www.instagram.com/jardinbotanicogye/" className="text-green-400 font-semibold">Jardin Botanico de Guayaquil</a></p>
                 <p>Copyright © 2023, Team Arbolista</p>
             </div>
         </div>

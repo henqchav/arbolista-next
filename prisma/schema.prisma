@@ -66,8 +66,8 @@ model Nursery{
 }
 
 enum UserRole {
-  SPECIES_CREATOR
-  NURSERY_CREATOR
+  SPECIES_ADMIN
+  NURSERY_ADMIN
   ADMIN
   READ_ONLY
 }

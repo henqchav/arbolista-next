@@ -22,13 +22,13 @@ const UserNavigationItems: React.FC<UserNavigationItemsProps> = ({
                     </li>
                     <li className="divide-y"></li>
                 </>
-            ) : currentUser?.userRole === "SPECIES_CREATOR" ? (
+            ) : currentUser?.userRole === "SPECIES_ADMIN" ? (
                 <>
                     <li>
                         <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Manejo de Especies</Link>
                     </li>
                 </>
-            ) : currentUser?.userRole === "NURSERY_CREATOR" ? (
+            ) : currentUser?.userRole === "NURSERY_ADMIN" ? (
                 <>
                     <li>
                         <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Manejo de Vivero</Link>

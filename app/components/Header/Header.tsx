@@ -18,10 +18,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({
     currentUser,
 }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const showMenu = () => {
-        setIsOpen(!isOpen);
-    }
+    
     const router = useRouter();
     return (
         <nav className="bg-white border-gray-200 shadow-md">
@@ -41,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({
                         <>
                             <button type="button" className="flex mr-2 text-sm bg-gray-400 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                                 <span className="sr-only">Open user menu</span>
-                                <CgProfile className="w-8 h-8 rounded-full"/>
+                                <Image className="rounded-full" src="/images/placeholder.jpg" width={32} height={32} alt="user photo" />
                             </button>
                             <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
                                 <div className="px-4 py-3">

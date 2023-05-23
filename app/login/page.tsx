@@ -38,7 +38,7 @@ const Login: React.FC<LoginProps> = ({
             if(callback?.ok) {
                 toast.success('Inicio de sesión exitos\nBienvenido');
                 router.refresh();
-                router.push('/');
+                window.location.href = '/';
             }
             if(callback?.error) {
                 toast.error(callback.error);

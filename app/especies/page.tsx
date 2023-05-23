@@ -4,10 +4,10 @@ import ClientOnly from "../components/ClientOnly";
 import { BiSearch } from "react-icons/bi";
 import { FaList } from "react-icons/fa";
 import { IoGrid } from "react-icons/io5";
+import { GoSettings } from "react-icons/go";
 
 import IconButton from "../components/buttons/IconButton";
 import axios from "axios";
-import Button from "../components/buttons/Button";
 import Image from "next/image";
 import Link from "next/link";
 import EmptyState from "../components/EmptyState";
@@ -37,21 +37,72 @@ const Especies = () => {
     const data = [
         {
             "id": 1,
-            "names": ["Cedro Odorata","Cedro"],
+            "scientific_name": "Cedrela Odorata",
+            "names": ["Cedro", "Cedro español", "acaju", "cedro amargo"],
             "usos_comunes": ["Ornamental","Material"],
             "familia": "Meliaceae",
             "image": "https://upload.wikimedia.org/wikipedia/commons/2/29/Cedrela_odorata_foliage.jpg"
         },
         {
             "id": 2,
-            "names": ["Handroanthus chrysanthus","Guayacan"],
+            "scientific_name": "Handroanthus chrysanthus",
+            "names": ["Guayacan"],
             "usos_comunes": ["Ornamental"],
             "familia": "Bignoniaceae",
             "image": "https://static.inaturalist.org/photos/33572615/medium.jpeg"
         },
         {
             "id": 3,
-            "names": ["Vitex gigantea","Cedro"],
+            "scientific_name": "Vitex gigantea",
+            "names": ["Cedro"],
+            "usos_comunes": ["Ornamental", "Material"],
+            "familia": "Lamiaceae",
+            "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/103375965/medium.jpg"
+        },
+        {
+            "id": 4,
+            "scientific_name": "Vitex gigantea",
+            "names": ["Cedro"],
+            "usos_comunes": ["Ornamental", "Material"],
+            "familia": "Lamiaceae",
+            "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/103375965/medium.jpg"
+        },
+        {
+            "id": 5,
+            "scientific_name": "Vitex gigantea",
+            "names": ["Cedro"],
+            "usos_comunes": ["Ornamental", "Material"],
+            "familia": "Lamiaceae",
+            "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/103375965/medium.jpg"
+        },
+        {
+            "id": 6,
+            "scientific_name": "Vitex gigantea",
+            "names": ["Cedro"],
+            "usos_comunes": ["Ornamental", "Material"],
+            "familia": "Lamiaceae",
+            "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/103375965/medium.jpg"
+        },
+        {
+            "id": 7,
+            "scientific_name": "Vitex gigantea",
+            "names": ["Cedro"],
+            "usos_comunes": ["Ornamental", "Material"],
+            "familia": "Lamiaceae",
+            "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/103375965/medium.jpg"
+        },
+        {
+            "id": 8,
+            "scientific_name": "Vitex gigantea",
+            "names": ["Cedro"],
+            "usos_comunes": ["Ornamental", "Material"],
+            "familia": "Lamiaceae",
+            "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/103375965/medium.jpg"
+        },
+        {
+            "id": 9,
+            "scientific_name": "Vitex gigantea",
+            "names": ["Cedro"],
             "usos_comunes": ["Ornamental", "Material"],
             "familia": "Lamiaceae",
             "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/103375965/medium.jpg"
@@ -65,21 +116,23 @@ const Especies = () => {
             setView("list");
         }
     }
-
+    const showfilter = () => {
+        console.log('Show filter')
+    }
     
 
     return (
         <div className="flex flex-col w-full h-full bg-[#eee] relative">
-            <div className="w-full h-auto p-8 text-xl flex bg-[#15803D] flex-row justify-around items-center font-bold text-white">
-                <h1 className="w-full sm:text-sm">Especies Nativas</h1>
+            <div className="w-full h-auto p-6 text-xl flex bg-green-500 flex-col gap-4 justify-center md:justify-around items-center font-bold text-white md:flex-row md:gap-0">
+                <h1 className="w-full text-lg md:text-lg text-center md:mr-2">Especies Nativas</h1>
                 <ClientOnly>
-                    <div className="h-auto flex flex-row items-center gap-2">
+                    <div className="flex flex-row items-center gap-2 w-full">
                         <input
                             type="text"
                             placeholder="Especie"
                             onChange={(e)=>setQuery(e.target.value)}
                             className="
-                                w-auto
+                                w-full
                                 p-2
                                 text-sm
                                 text-gray-600
@@ -96,13 +149,17 @@ const Especies = () => {
                                 focus:border-teal-500
                             "                    
                         />
-                        <IconButton small onClick={search} iconSize={20} icon={BiSearch}/>
-                        <Button style="bg-cyan-900 px-4 border-transparent py-2 w-20" small label="Filtros" onClick={search} />
+                        <IconButton style="outline outline-1 outline-white" small onClick={search} iconSize={20} icon={BiSearch}/>
+                        <button type="button" className="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" 
+                        onClick={showfilter}>
+                            <GoSettings className="w-5 h-5 md:mr-2"/>
+                            <span className="hidden md:flex">Filtrar</span>
+                        </button>                    
                     </div>
                 </ClientOnly>
             </div>
             <div className="w-[80vw] flex flex-col h-auto px-3 py-3 min-h-500 mx-auto mb-10">
-                <div className="w-full pl-8 py-2 h-auto flex flex-row justify-between items-center">
+                <div className="w-full md:pl-8 py-2 px-2 h-auto flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center mb-4">
                     <p className="text-sm font-bold text-gray-700">{results.length} Resultados</p>
                     <div className="inline-flex rounded-md shadow-sm" role="group">
                         <button
@@ -126,8 +183,8 @@ const Especies = () => {
                             `}
                             onClick={()=>changeView("list")}
                         >
-                            <FaList className="mr-2"/>
-                            Lista
+                            <FaList className="md:mr-2"/>
+                            <span className="hidden md:flex">Lista</span>
                         </button>
                         <button
                             type="button"
@@ -152,8 +209,8 @@ const Especies = () => {
                             `}
                             onClick={()=>changeView("grid")}
                         >
-                            <IoGrid className="mr-2"/>
-                            Multimedia
+                            <IoGrid className="md:mr-2"/>
+                            <span className="hidden md:flex">Multimedia</span>
                         </button>
                     </div>
                 </div>
@@ -169,75 +226,90 @@ const Especies = () => {
                         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
                     </div>
                 ) : (
-                    <>
+                    <div className="relative overflow-x-auto shadow-md rounded-lg">
                         {view === "list" ? (
-                            <table className="w-full border-collapse border-spacing-2 table-auto mt-4 shadow-md px-15">
-                                <thead>
+                            <table className="w-full text-sm text-left text-gray-500">
+                                <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                                     <tr>
-                                        <th className="w-36 border-b text-center p-2 border-slate-500 ">Multimedia</th>
-                                        <th className="border-b text-left p-2 border-slate-500">Nombre</th>
-                                        <th className="border-b text-left p-2 border-slate-500">Usos Comunes</th>
-                                        <th className="border-b text-left p-2 border-slate-500">Familia</th>
+                                        <th scope="col" className="px-6 py-3"><span className="sr-only">Image</span></th>
+                                        <th scope="col" className="px-6 py-3">Nombre</th>
+                                        <th scope="col" className="px-6 py-3">Usos Comunes</th>
+                                        <th scope="col" className="px-6 py-3">Familia</th>
                                     </tr>
                                 </thead>
                                 <ClientOnly>
-                                <tbody>
+                                <tbody >
 
                                     {data.map((result, index)=>(
-                                        <tr key={index} className="border-t-2">
-                                            <td className="items-center flex justify-center p-2">
+                                        <tr key={index} className="bg-white border-b hover:bg-gray-50">
+                                            <td className="w-32 p-4">
                                                 <Link href={'/especies/' + result.id}>
                                                     <Image 
-                                                        src={result.image} alt={result.names[0]} width={80} height={80}
-                                                        className="rounded-md m-0 h-20 w-20"
+                                                        src={result.image} alt={result.scientific_name[0]} width={100} height={100}
+                                                        className="rounded-sm aspect-square overflow-hidden"
                                                     />
                                                 </Link>
                                             </td>
-                                            <td className="text-gray-700 pl-2">
-                                                {result.names.map((item, index)=>(
-                                                    <div key={index} className={index===0 ? "font-bold" : "font-light"}>{
-                                                        <Link href={'/especies/' + result.id}>
-                                                        {item}
-                                                        </Link>
-                                                    }</div>    
-                                                ))}
+                                            <td className="text-gray-900 font-semibold px-6 py-4">
+                                                <Link href={'/'}>{result.scientific_name}</Link>
+                                                <div className="font-light text-gray-700">
+                                                    <p>
+                                                        {result.names.map((item, index)=>(
+                                                            <Link key={index} href={'/especies/' + result.id}>
+                                                                {item + (index === result.names.length-1 ? "" : ", ")}
+                                                            </Link>    
+                                                        ))}
+                                                    </p>
+                                                </div>
                                             </td>
-                                            <td className="text-gray-700 pl-2">
+                                            <td className="px-6 py-4 text-gray-700">
                                                 {result.usos_comunes.map((item, index)=>(
-                                                    <div key={index}>{item}</div>    
+                                                    <div key={index}>{item + (index === result.usos_comunes.length-1 ? "" : ", ")}</div>    
                                                 ))}
                                             </td>
-                                            <td className="text-gray-700 pl-2">{result.familia}</td>
+                                            <td className="text-gray-700 px-6 py-4">{result.familia}</td>
                                         </tr>
                                     ))}
                                 </tbody>
                                 </ClientOnly>
                             </table>
                         ) : (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+                            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
                                 {data.map((result, index)=>(
-                                    <div key={index} className="columns-2xs flex flex-col items-center justify-center rounded-b-sm shadow-md h-[267px]">
-                                        <Link href={'/especies/' + result.id}>
-                                            <Image
-                                                src={result.image} alt={result.names[0]} width={200} height={200}
-                                                className=""
-                                            />
-                                        </Link>
-                                        <div className="bg-white w-full text-left p-4 text-gray-700 pl-2">
-                                            {result.names.map((item, index)=>(
-                                                <div key={index} className={(index===0 ? "font-bold" : "font-light")}>{
-                                                    <Link href={'/especies/' + result.id}>
-                                                     <p className="whitespace-nowrap overflow-hidden text-ellipsis">{item}</p>
-                                                    </Link>
-                                                }</div>
-                                            ))}
+                                    <div key={index} onClick={()=>{}} className="col-span-1 cursor-pointer group bg-white rounded-xl overflow-hidden shadow-lg">
+                                        <div className="flex flex-col gap-2 w-full">
+                                            <div 
+                                                className="
+                                                    w-full
+                                                    aspect-square
+                                                    relative
+                                                    overflow-hidden
+                                                    rounded-xl
+                                                "
+                                            >
+                                                <Image fill className="object-cover h-full w-full group-hover:scale-110 transition" alt={"especie"} src={result.image} />
+                                            </div>
                                         </div>
+                                        <div className="bg-white p-2">
+                                            <div className="font-semibold text-xs md:text-sm lg:text-md">
+                                                {result.scientific_name}
+                                            </div>
+                                            <div className="font-light text-xs md:text-sm lg:text-md text-neutral-500 truncate">
+                                                <p>
+                                                    {result.names.map((item, index)=>(
+                                                        <span key={index}>
+                                                            {item + (index === result.names.length-1 ? "" : ", ")}
+                                                        </span>
+                                                    ))}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 ))}
                             </div>
                         )}    
-                    </>
-                
+                    </div>
             )}
                 
             </div>
