@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-//https://upload.wikimedia.org/wikipedia/commons/2/29/Cedrela_odorata_foliage.jpg
 const nextConfig = {
     images: {
         domains: [
@@ -7,6 +6,15 @@ const nextConfig = {
             'static.inaturalist.org',
             'inaturalist-open-data.s3.amazonaws.com',
         ],
+    },
+    redirects: async () => {
+        return [
+            {
+                source: '/',
+                destination: '/home',
+                permanent: true,
+            },
+        ];
     },
 }
 

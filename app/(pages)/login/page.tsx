@@ -1,24 +1,20 @@
 'use client';
 
-import axios from 'axios';
-import {
-    FieldValues,
-    SubmitHandler,
-    useForm
-} from 'react-hook-form';
-import {toast} from 'react-hot-toast';
-import { SafeUser } from '../types';
-import { useRouter } from 'next/navigation';
-import Input from '../components/inputs/Input';
-import Heading from '../components/Heading';
-import Button from '../components/buttons/Button';
-import Link from 'next/link';
+import { useRouter } from "next/navigation";
+import Heading from "@/app/components/Heading";
+import Input from "@/app/components/inputs/Input";
+import { SafeUser } from "@/app/types";
+import { signIn } from "next-auth/react";
+import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
+import Button from "@/app/components/buttons/Button";
+import Link from "next/link";
 
-interface RegisterProps {
+interface LoginProps {
     currentUser: SafeUser | null | undefined;
 }
 
-const Register: React.FC<RegisterProps> = ({
+const Login: React.FC<LoginProps> = ({
     currentUser
 }) => {
     const router = useRouter();
@@ -28,51 +24,45 @@ const Register: React.FC<RegisterProps> = ({
         formState: { errors },
     } = useForm<FieldValues>({
         defaultValues: {
-            name: '',
             email: '',
             password: '',
         }
     });
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        axios.post('/api/register', data)
-            .then((response) => {
-                toast.success("Registro exitoso. Te contactaremos pronto para habilitar tu cuenta.");
-            })
-            .catch((error) => {
-                toast.error("Ocurrió un error al registrarse");
-            })
-            .finally(() => {
-                router.push('/');
+        signIn('credentials', {
+            ...data,
+            redirect: false,
+        })
+        .then((callback) => {
+            if(callback?.ok) {
+                toast.success('Inicio de sesión exitos\nBienvenido');
+                router.refresh();
+                window.location.href = '/';
             }
-        );
+            if(callback?.error) {
+                toast.error(callback.error);
+            }
+        })   
     };
     
     
     return (
         <div className="w-full my-32 items-center justify-center flex flex-row">
-            <div className="w-[70vw] text-sm md:text-md md:w-[60vw] lg:w-[50vw]  ">
+            <div className="w-[80vw] text-sm md:text-md md:w-[60vw] lg:w-[50vw]">
                 <div className="flex flex-col gap-4">
                     <Heading 
                         center
                         title="Bienvenido a Arbolista" 
-                        subtitle="Unete a nuestra comunidad de viveristas y ayudanos a crear un mejor catalogo de plantas de Guayaquil"
+                        subtitle="Inicia sesion y ayudanos a crear un mejor catalogo de plantas de Guayaquil."
                     />
                     <hr />
                 </div>
                 <div className="flex flex-col gap-4 mt-4">
-                    <Input
-                        id="name"
-                        label='Nombre Completo'
-                        register={register}
-                        errors={errors}
-                        type='text'
-                        required
-                    />
                     <Input 
                         id="email" 
+                        type="email"
                         label='Correo' 
-                        type='email'
                         register={register}
                         errors={errors}
                         required
@@ -85,14 +75,14 @@ const Register: React.FC<RegisterProps> = ({
                         errors={errors}
                         required
                     />
-                    <Button label="Registrar cuenta" onClick={handleSubmit(onSubmit)} />
+                    <Button label="Iniciar sesion" onClick={handleSubmit(onSubmit)} />
                 </div>
                 <div className="flex flex-col gap-4 mt-3">
                     <div className='text-neutral-500 text-center mt-4 font-light'>
                         <div className='justify-center flex flex-row items-center gap-2'>
-                            <div>¿Ya tienes una cuenta?</div>
+                            <div>¿Aun no tienes una cuenta?</div>
                             <div className='text-green-500 font-semibold cursor-pointer hover:underline'>
-                            <Link href='/login'>Inicia sesion</Link>
+                            <Link href="/register">Registrate</Link>
                             </div>
                         </div>
                     </div>
@@ -102,4 +92,4 @@ const Register: React.FC<RegisterProps> = ({
     );
 }
 
-export default Register;
+export default Login;

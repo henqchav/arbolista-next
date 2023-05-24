@@ -1,16 +1,16 @@
 'use client';
 import { useRef, useState } from "react";
-import ClientOnly from "../components/ClientOnly";
+import ClientOnly from "@/app/components/ClientOnly";
 import { BiSearch } from "react-icons/bi";
 import { FaList } from "react-icons/fa";
 import { IoGrid } from "react-icons/io5";
 import { GoSettings } from "react-icons/go";
 
-import IconButton from "../components/buttons/IconButton";
+import IconButton from "@/app/components/buttons/IconButton";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import EmptyState from "../components/EmptyState";
+import EmptyState from "@/app/components/EmptyState";
 
 const Especies = () => {
     const [isLoading, setIsLoading] = useState(false);
