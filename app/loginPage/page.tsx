@@ -3,20 +3,13 @@
 import { useRouter } from "next/navigation";
 import Heading from "@/app/components/Heading";
 import Input from "@/app/components/inputs/Input";
-import { SafeUser } from "@/app/types";
 import { signIn } from "next-auth/react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import Button from "@/app/components/buttons/Button";
 import Link from "next/link";
 
-interface LoginProps {
-    currentUser: SafeUser | null | undefined;
-}
-
-const Login: React.FC<LoginProps> = ({
-    currentUser
-}) => {
+const Login = async () => {
     const router = useRouter();
     const {
         register,
