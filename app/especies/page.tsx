@@ -1,38 +1,20 @@
 'use client';
-import { useRef, useState } from "react";
-import ClientOnly from "../components/ClientOnly";
+import { useState } from "react";
+import ClientOnly from "@/app/components/ClientOnly";
 import { BiSearch } from "react-icons/bi";
 import { FaList } from "react-icons/fa";
 import { IoGrid } from "react-icons/io5";
 import { GoSettings } from "react-icons/go";
 
-import IconButton from "../components/buttons/IconButton";
-import axios from "axios";
+import IconButton from "@/app/components/buttons/IconButton";
 import Image from "next/image";
 import Link from "next/link";
-import EmptyState from "../components/EmptyState";
+import EmptyState from "@/app/components/EmptyState";
 
-const Especies = () => {
+const Especies = async () => {
     const [isLoading, setIsLoading] = useState(false);
     
-    const searchRef = useRef(null)
-    const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
-
-    const searchEndpoint = (query:String) => `/api/search?q=${query}`
-    const search = () => {
-        setIsLoading(true);
-        axios.get(searchEndpoint(query))
-        .then((res)=>{
-            setResults(res.data);
-        })
-        .catch((err)=>{
-            console.error(err);
-        })
-        .finally(()=>{
-            setIsLoading(false);
-        })
-    }
 
     const data = [
         {
@@ -130,7 +112,7 @@ const Especies = () => {
                         <input
                             type="text"
                             placeholder="Especie"
-                            onChange={(e)=>setQuery(e.target.value)}
+                            onChange={(e)=>{}}
                             className="
                                 w-full
                                 p-2
@@ -149,7 +131,7 @@ const Especies = () => {
                                 focus:border-teal-500
                             "                    
                         />
-                        <IconButton style="outline outline-1 outline-white" small onClick={search} iconSize={20} icon={BiSearch}/>
+                        <IconButton style="outline outline-1 outline-white" small onClick={()=>{}} iconSize={20} icon={BiSearch}/>
                         <button type="button" className="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-2 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" 
                         onClick={showfilter}>
                             <GoSettings className="w-5 h-5 md:mr-2"/>

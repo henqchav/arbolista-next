@@ -7,20 +7,13 @@ import {
     useForm
 } from 'react-hook-form';
 import {toast} from 'react-hot-toast';
-import { SafeUser } from '../types';
 import { useRouter } from 'next/navigation';
-import Input from '../components/inputs/Input';
-import Heading from '../components/Heading';
-import Button from '../components/buttons/Button';
+import Input from '@/app/components/inputs/Input';
+import Heading from '@/app/components/Heading';
+import Button from '@/app/components/buttons/Button';
 import Link from 'next/link';
 
-interface RegisterProps {
-    currentUser: SafeUser | null | undefined;
-}
-
-const Register: React.FC<RegisterProps> = ({
-    currentUser
-}) => {
+const Register = () => {
     const router = useRouter();
     const {
         register,

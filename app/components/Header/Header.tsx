@@ -2,17 +2,15 @@
 
 import Logo from "../Logo"
 import { SafeUser } from "@/app/types";
-import { useState } from "react";
 import { GiSeedling } from "react-icons/gi";
 import Navigation from "./Navigation";
 import Image from "next/image";
-import { CgProfile } from "react-icons/cg";
 import UserNavigationItems from "./UserNavigationItems";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 interface HeaderProps {
-    currentUser?: SafeUser | null | undefined;
+    currentUser?: SafeUser | null;
 }
 
 const Header: React.FC<HeaderProps> = ({
