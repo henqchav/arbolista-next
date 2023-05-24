@@ -24,6 +24,7 @@ export default async function RootLayout({
 }) {
   const currentUser = await getCurrentUser();
   return (
+    <html lang='es'>
       <body className={nunito.className}>
         <ClientOnly>
           <ToasterProvider />
