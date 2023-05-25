@@ -4,7 +4,7 @@ import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import ToasterProvider from './providers/ToasterProvider'
 import './globals.css'
-import { nunito } from '@/app/styles/font'
+import { nunito } from './styles/font'
 
 import getCurrentUser from './actions/getCurrentUser'
 
