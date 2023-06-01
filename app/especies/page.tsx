@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import EmptyState from "@/app/components/EmptyState";
 
-const Especies = async () => {
+const Especies = () => {
     const [isLoading, setIsLoading] = useState(false);
     
     const [results, setResults] = useState([]);
