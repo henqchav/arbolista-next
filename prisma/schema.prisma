@@ -218,6 +218,8 @@ model Arboriculture{
 
 }
 
+
+
 model Images {
   id                    String  @id @default(cuid())
   presentation_url      String?
